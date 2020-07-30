@@ -12,7 +12,7 @@
         <change_fields>false</change_fields>
         <client_callable>false</client_callable>
         <collection>x_516185_wish_list_wish_item</collection>
-        <condition/>
+        <condition>current.item.changes() || current.requester.changes() || current.operation() == 'insert'  || current.quantity.changes()</condition>
         <description/>
         <execute_function>false</execute_function>
         <filter_condition/>
@@ -30,7 +30,7 @@
         <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
 
 	// Add your code here
-	current.item.changes() || current.requester.changes() || current.operation() == 'insert'
+	current.display_name = current.item + " (" + current.quantity + ") - " + current.requester.name;
 })(current, previous);]]></script>
         <sys_class_name>sys_script</sys_class_name>
         <sys_created_by>fred.luddy</sys_created_by>
@@ -38,15 +38,15 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>4e87e6ca2fd2dc10c1dcfcecf699b60e</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name> Populate Display name</sys_name>
         <sys_overrides/>
         <sys_package display_value="Wish List" source="x_516185_wish_list">356d0e4a2f92dc10c1dcfcecf699b6bf</sys_package>
         <sys_policy/>
         <sys_scope display_value="Wish List">356d0e4a2f92dc10c1dcfcecf699b6bf</sys_scope>
         <sys_update_name>sys_script_4e87e6ca2fd2dc10c1dcfcecf699b60e</sys_update_name>
-        <sys_updated_by>fred.luddy</sys_updated_by>
-        <sys_updated_on>2020-07-30 20:52:29</sys_updated_on>
+        <sys_updated_by>carol.coughlin</sys_updated_by>
+        <sys_updated_on>2020-07-30 21:13:44</sys_updated_on>
         <template/>
         <when>before</when>
     </sys_script>
